@@ -1,0 +1,51 @@
+ <div class="wrapper">
+    <div id="formContent">
+      <div id="title">
+        <h2><span class="active">SIGN IN</span>  <span>SIGN UP</span></h2>
+      </div>
+  
+      <div id="image" >
+        <img src="assets/images/i.png" id="icon"  alt="User Icon" />
+      </div>
+  
+      <form class="form-group" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+        <input  class="form-control" type="text" id="login"  name="email" 
+        placeholder="login" formControlName="email">  
+        <div>    
+        <span class="text-danger"
+                   *ngIf="(submitted) && registerFormControl.email.errors?.required">
+                   Email is required
+                   </span>
+                   <span class="text-danger"
+               *ngIf=" (submitted) && registerFormControl.email.errors?.email">
+                   Enter a valid email address
+               </span>
+            </div>
+        </div>
+            <div class="form-group">
+        <input  class="form-control"  formControlName="password"
+        type="text" id="password"  name="password" placeholder="password">
+        <div>
+            <span class="text-danger"
+                   *ngIf="(submitted) && registerFormControl.password.errors?.required">
+                   Password is required
+                   </span>
+              <span class="text-danger"
+                    *ngIf="(submitted) && registerFormControl.password.errors?.invalidPassword">
+                    Password should have at least 1 uppercase letter, 1 lowercase
+                    letter, 1 symbol and 1 number
+                </span>
+            </div>
+            </div>
+         <div class="form-group">
+        <input type="submit" value="Log In">
+    </div>
+      </form>
+
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Forgot Password?</a>
+      </div>
+    </div>
+  </div>
+ 
